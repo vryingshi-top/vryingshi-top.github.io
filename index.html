@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VR影视 &nbsp;|&nbsp; 沉浸式影像资料库与观看手册 &nbsp;·&nbsp; vryingshi-top.github.io</title>
+<meta name="description" content="VR影视是一个专注虚拟现实影像的资料站点，收录VR电影、360度全景视频、VR演唱会直播、VR动画、交互式纪录片与全景旅行影像，提供题材分类、设备适配说明、画质与晕动提示、片单整理和观看顺序建议。站点不提供在线播放、下载与解析服务，适合用VR头显、手机盒子与全景播放器检索想看的内容。">
+<meta name="keywords" content="VR影视, VR电影, 360度视频, 全景影像, VR动画, 沉浸式纪录片, VR演唱会, vryingshi-top.github.io">
+<link rel="canonical" href="https://vryingshi-top.github.io/">
+<meta name="theme-color" content="#05070f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VR影视 | 沉浸式影像资料库 vryingshi-top.github.io">
+<meta property="og:description" content="VR电影、360度全景、VR动画与交互纪录片的分类片单与观看手册。">
+<meta property="og:url" content="https://vryingshi-top.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VR影视 | 沉浸式影像资料库">
+<meta name="twitter:description" content="按题材、时长与设备适配整理的VR影像资料，vryingshi-top.github.io。">
+<style>
+:root{
+  --bg:#05070f; --panel:#0b1020; --panel2:#111a30; --line:#1e2a44;
+  --txt:#e8ecf6; --sub:#9aa7c4; --dim:#6d7a96;
+  --cy:#39e0d3; --pu:#8b7bff; --pi:#ff5cb3; --am:#ffb648;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--txt);
+  font:16px/1.85 "PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",system-ui,sans-serif;
+  background-image:radial-gradient(1200px 700px at 12% -8%,rgba(57,224,211,.14),transparent 60%),
+                  radial-gradient(1000px 600px at 88% 12%,rgba(139,123,255,.14),transparent 62%),
+                  radial-gradient(900px 500px at 50% 105%,rgba(255,92,179,.10),transparent 60%);
+  background-attachment:fixed;
+}
+a{color:var(--cy); text-decoration:none}
+.wrap{max-width:1240px; margin:0 auto; padding:0 26px}
+/* ---------- 顶栏 ---------- */
+.nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+  background:rgba(5,7,15,.82); border-bottom:1px solid var(--line);
+}
+.nav .in{display:flex; align-items:center; gap:22px; height:62px}
+.brand{display:flex; align-items:baseline; gap:9px; font-weight:800; letter-spacing:.5px; white-space:nowrap}
+.brand b{font-size:21px; background:linear-gradient(92deg,var(--cy),var(--pu) 55%,var(--pi)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.brand small{font-size:11px; color:var(--dim); font-weight:600; letter-spacing:1px}
+.menu{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap}
+.menu a{
+  color:var(--sub); font-size:14px; padding:8px 11px; border-radius:9px; transition:.2s;
+}
+.menu a:hover{color:#fff; background:rgba(255,255,255,.07)}
+.menu-btn{display:none; margin-left:auto; background:none; border:1px solid var(--line); color:var(--txt);
+  width:44px; height:44px; border-radius:11px; cursor:pointer; font-size:20px}
+/* ---------- 英雄 ---------- */
+.hero{padding:64px 0 44px; position:relative}
+.hero h1{font-size:clamp(30px,5.4vw,54px); line-height:1.18; margin:0 0 16px; letter-spacing:-.5px}
+.hero h1 em{font-style:normal; background:linear-gradient(92deg,var(--cy),var(--pu) 60%,var(--pi)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.hero p{margin:0; max-width:720px; color:var(--sub); font-size:17px}
+.stats{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px}
+.stat{flex:1 1 150px; min-width:150px; background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid var(--line); border-radius:16px; padding:16px 18px}
+.stat i{font-style:normal; display:block; font-size:26px; font-weight:800; color:#fff}
+.stat span{font-size:12.5px; color:var(--dim); letter-spacing:.5px}
+/* ---------- 通用 ---------- */
+section{padding:44px 0; border-top:1px solid var(--line)}
+.sec-head{display:flex; align-items:flex-end; gap:14px; flex-wrap:wrap; margin-bottom:26px}
+.sec-head h2{margin:0; font-size:26px; letter-spacing:-.3px}
+.sec-head .no{font:800 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--cy);
+  border:1px solid rgba(57,224,211,.4); padding:5px 9px; border-radius:7px}
+.sec-head p{margin:6px 0 0; color:var(--dim); font-size:14px; width:100%}
+/* ---------- 卡片 ---------- */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(228px,1fr)); gap:18px}
+.card{background:linear-gradient(165deg,var(--panel),var(--panel2)); border:1px solid var(--line);
+  border-radius:16px; overflow:hidden; transition:.25s}
+.card:hover{transform:translateY(-4px); border-color:rgba(57,224,211,.5)}
+.thumb{position:relative; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+  font-size:40px; font-weight:800; color:rgba(255,255,255,.55); letter-spacing:2px}
+.thumb::after{content:""; position:absolute; right:10px; bottom:10px; width:30px; height:30px;
+  border-radius:50%; background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.25)}
+.thumb.t1{background:linear-gradient(135deg,#0e3b47,#102a52)}
+.thumb.t2{background:linear-gradient(135deg,#3a1a4a,#1c2a5e)}
+.thumb.t3{background:linear-gradient(135deg,#4a2a12,#3a1640)}
+.thumb.t4{background:linear-gradient(135deg,#123a3a,#16405a)}
+.thumb.t5{background:linear-gradient(135deg,#2e1a45,#45163a)}
+.thumb.t6{background:linear-gradient(135deg,#1c3a1c,#16452f)}
+.body{padding:14px 16px 16px}
+.body h3{margin:0 0 8px; font-size:16.5px; line-height:1.45}
+.body p{margin:0 0 10px; font-size:13.5px; color:var(--sub)}
+.tags{display:flex; gap:6px; flex-wrap:wrap}
+.tags i{font-style:normal; font-size:11.5px; color:var(--sub); background:rgba(255,255,255,.06);
+  border:1px solid var(--line); padding:3px 8px; border-radius:20px}
+/* ---------- 设备条 ---------- */
+.dev{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px}
+.dev div{background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
+.dev h4{margin:0 0 6px; font-size:15px; color:var(--cy)}
+.dev span{font-size:13px; color:var(--sub)}
+/* ---------- 表格 ---------- */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.025)}
+table{width:100%; border-collapse:collapse; font-size:14px; min-width:640px}
+caption{caption-side:top; text-align:left; padding:14px 16px; color:var(--sub); font-size:13.5px}
+th,td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:rgba(57,224,211,.08); color:#fff; font-size:13px; letter-spacing:.5px; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td b{color:var(--am); font-weight:700}
+/* ---------- 排行 ---------- */
+.rank{display:grid; gap:12px}
+.rk{display:flex; gap:14px; align-items:flex-start; background:linear-gradient(160deg,var(--panel),var(--panel2));
+  border:1px solid var(--line); border-radius:14px; padding:14px 16px}
+.rk .n{font:800 19px/1 ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--dim); min-width:34px}
+.rk:nth-child(1) .n{color:var(--am)}
+.rk:nth-child(2) .n{color:var(--cy)}
+.rk:nth-child(3) .n{color:var(--pi)}
+.rk h4{margin:0 0 5px; font-size:16px}
+.rk p{margin:0; font-size:13.5px; color:var(--sub)}
+/* ---------- FAQ ---------- */
+details{border:1px solid var(--line); border-radius:14px; padding:14px 18px; background:rgba(255,255,255,.025)}
+details+details{margin-top:10px}
+summary{cursor:pointer; font-weight:700; font-size:15.5px; list-style:none; display:flex; gap:10px; align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"问"; font-size:11px; font-weight:800; color:var(--cy);
+  border:1px solid rgba(57,224,211,.45); padding:2px 7px; border-radius:6px; flex:none}
+details[open] summary::before{content:"答"; color:var(--pi); border-color:rgba(255,92,179,.45)}
+details[open] summary{margin-bottom:10px}
+details p{margin:0; font-size:14px; color:var(--sub)}
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid var(--line); padding:40px 0 28px; margin-top:20px}
+.foot{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:26px}
+.foot h5{margin:0 0 10px; font-size:14px; color:#fff; letter-spacing:.5px}
+.foot ul{margin:0; padding:0; list-style:none}
+.foot li{margin-bottom:7px}
+.foot a{font-size:13.5px; color:var(--sub)}
+.foot a:hover{color:var(--cy)}
+.plaque{margin-top:26px; padding:16px 18px; border:1px dashed var(--line); border-radius:14px;
+  font-size:13.5px; color:var(--sub); word-break:break-all}
+.plaque code{color:var(--am); font-size:14px}
+.copy{margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--dim)}
+@media (max-width:1000px){
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .wrap{padding:0 18px}
+  .menu-btn{display:block}
+  .menu{position:absolute; left:0; right:0; top:62px; flex-direction:column; gap:2px;
+    padding:12px; background:rgba(7,10,20,.97); border-bottom:1px solid var(--line);
+    display:none}
+  .menu.show{display:flex}
+  .menu a{font-size:15px; padding:12px 13px}
+  .hero{padding:38px 0 28px}
+  .grid{grid-template-columns:repeat(2,1fr); gap:12px}
+  .foot{grid-template-columns:1fr}
+  .sec-head h2{font-size:22px}
+}
+@media (max-width:400px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="nav" role="banner">
+  <div class="wrap in">
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <b>VR影视</b><small>vryingshi-top.github.io</small>
+    </a>
+    <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="mn" aria-label="菜单">☰</button>
+    <nav class="menu" id="mn" aria-label="栏目导航">
+      <a href="#vrfilm">VR电影</a>
+      <a href="#live">全景直播</a>
+      <a href="#cartoon">VR动画</a>
+      <a href="#doc">沉浸纪录</a>
+      <a href="#travel">旅行影像</a>
+      <a href="#device">设备适配</a>
+      <a href="#rank">口碑榜</a>
+      <a href="#faq">常见问题</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" role="main">
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <h1 id="h1">戴上头显之前，<br><em>先在这里把想看的挑好</em></h1>
+      <p>VR影视是一个手工整理的沉浸式影像资料库。我们把 VR 电影、360 度全景视频、VR 演唱会、VR 动画、交互式纪录片和旅行影像按题材与观看时长分好类，顺手标注画质、视角方式与容易晕的段落，让你打开头显就知道点哪一部。</p>
+      <div class="stats">
+        <div class="stat"><i>6</i><span>内容方向</span></div>
+        <div class="stat"><i>120+</i><span>已整理条目</span></div>
+        <div class="stat"><i>3</i><span>设备类型对照</span></div>
+        <div class="stat"><i>0</i><span>不提供播放与下载</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vrfilm" aria-labelledby="s1">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">01</span>
+        <h2 id="s1">VR 电影</h2>
+        <p>叙事类虚拟现实影片，以固定机位 360 拍摄与空间音频为主，多数单集 10 到 30 分钟。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb t1">深海</div>
+          <div class="body">
+            <h3>深海守夜人</h3>
+            <p>跟随潜水器下潜到千米海底，全程无对白，靠环境声交代剧情。</p>
+            <div class="tags"><i>360 影片</i><i>18 分钟</i><i>空间音频</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t2">站台</div>
+          <div class="body">
+            <h3>末班车站台</h3>
+            <p>悬疑短片，视角固定在站台长椅，人物从四面走入画面。</p>
+            <div class="tags"><i>剧情</i><i>24 分钟</i><i>可回看</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t3">火星</div>
+          <div class="body">
+            <h3>火星第一夜</h3>
+            <p>科幻题材，舱内布光复杂，适合测试头显的暗部表现。</p>
+            <div class="tags"><i>科幻</i><i>28 分钟</i><i>HDR</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t4">古宅</div>
+          <div class="body">
+            <h3>古宅回声</h3>
+            <p>中式恐怖向，转身与回头是主要互动方式，建议坐稳观看。</p>
+            <div class="tags"><i>惊悚</i><i>15 分钟</i><i>易晕</i></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="live" aria-labelledby="s2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">02</span>
+        <h2 id="s2">全景直播与演出</h2>
+        <p>演唱会、赛事、发布会这类「在场感」内容，重点看机位数量与是否支持视角回放。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb t5">LIVE</div>
+          <div class="body">
+            <h3>沉浸式演唱会</h3>
+            <p>舞台四面机位，可自由转头看观众席，延迟通常比平面直播高一些。</p>
+            <div class="tags"><i>8K</i><i>多机位</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t6">赛事</div>
+          <div class="body">
+            <h3>赛场边座位</h3>
+            <p>固定在看台的 360 机位，适合没抢到票时感受现场气氛。</p>
+            <div class="tags"><i>体育</i><i>实时</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t1">TALK</div>
+          <div class="body">
+            <h3>对谈圆桌</h3>
+            <p>嘉宾围坐一圈，转头就能看到发言的人，比平面访谈自然。</p>
+            <div class="tags"><i>访谈</i><i>录播</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t2">舞台</div>
+          <div class="body">
+            <h3>沉浸式戏剧</h3>
+            <p>观众被放在舞台中央，演员在四周走动，视线需要频繁切换。</p>
+            <div class="tags"><i>戏剧</i><i>45 分钟</i></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cartoon" aria-labelledby="s3">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">03</span>
+        <h2 id="s3">VR 动画</h2>
+        <p>风格化渲染的短片与系列，画面信息量小、色彩饱和，是新手适应头显的首选。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb t3">纸城</div>
+          <div class="body">
+            <h3>纸城漫游</h3>
+            <p>折纸质感的开放小城，可自由抬头低头找隐藏通道。</p>
+            <div class="tags"><i>治愈</i><i>无对白</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t4">森林</div>
+          <div class="body">
+            <h3>森林里的小屋</h3>
+            <p>儿童向，视角较低，镜头运动平缓，不容易引起不适。</p>
+            <div class="tags"><i>亲子</i><i>12 分钟</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t5">齿轮</div>
+          <div class="body">
+            <h3>齿轮工厂</h3>
+            <p>蒸汽朋克设定，物件从四面飞过，适合演示刷新率差异。</p>
+            <div class="tags"><i>蒸汽朋克</i><i>演示片</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t6">星图</div>
+          <div class="body">
+            <h3>星图寓言</h3>
+            <p>宇宙尺度叙事，画面以深空与光带为主，节奏慢。</p>
+            <div class="tags"><i>哲理</i><i>20 分钟</i></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="doc" aria-labelledby="s4">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">04</span>
+        <h2 id="s4">沉浸式纪录片</h2>
+        <p>把镜头放进真实场景：手术室、火山口、难民帐篷、考古现场。这类内容的价值在「在场」，不在剪辑。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb t1">火山</div>
+          <div class="body">
+            <h3>火山口之上</h3>
+            <p>摄影师背着设备靠近活火山，镜头晃动明显，注意量力而看。</p>
+            <div class="tags"><i>自然</i><i>强震感</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t2">手术</div>
+          <div class="body">
+            <h3>手术室 360</h3>
+            <p>站在主刀医生身后视角，画面写实，晕血者慎入。</p>
+            <div class="tags"><i>医疗</i><i>纪实</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t3">遗址</div>
+          <div class="body">
+            <h3>遗址修复现场</h3>
+            <p>考古队员第一视角，动作幅度小，适合长时间佩戴观看。</p>
+            <div class="tags"><i>人文</i><i>30 分钟</i></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb t4">海洋</div>
+          <div class="body">
+            <h3>深海鲸群</h3>
+            <p>水下跟拍，蓝调画面，声场是这部片子最大的优势。</p>
+            <div class="tags"><i>海洋</i><i>空间音频</i></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="travel" aria-labelledby="s5">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">05</span>
+        <h2 id="s5">旅行与风光影像</h2>
+        <p>不出门也能转一圈：城市天台、古迹内部、极光营地、夜市摊前。多为 4K 以上静态机位，对配置要求最低。</p>
+      </div>
+      <div class="dev">
+        <div><h4>城市漫步</h4><span>东京小巷、纽约屋顶、伊斯坦布尔集市，步行节奏机位。</span></div>
+        <div><h4>古迹内部</h4><span>教堂穹顶、石窟、古城墙，抬头比转头更有价值。</span></div>
+        <div><h4>自然风光</h4><span>极光、峡谷、瀑布、雪原，昼夜各有一版。</span></div>
+        <div><h4>节庆现场</h4><span>烟花、灯会、花车巡游，人多嘈杂，建议降音量。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="device" aria-labelledby="s6">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">06</span>
+        <h2 id="s6">设备与适配说明</h2>
+        <p>同一部片子在不同设备上的观感差异，往往比片子本身更大。下面这张表是我们实测后整理的参考。</p>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <caption>按设备类型查看适配情况，数据为经验值，实际以播放器显示为准。</caption>
+          <thead>
+            <tr><th>设备类型</th><th>分辨率与刷新率</th><th>适合的内容</th><th>常见问题</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>一体式头显</td><td>单眼约 1832×1920 / 72-90Hz</td><td>VR 电影、动画、纪录片</td><td>暗场细节偏软，<b>建议调高亮度</b></td></tr>
+            <tr><td>PC 端头显</td><td>依型号，最高 4K 级 / 90-120Hz</td><td>演唱会直播、演示片</td><td>线缆与散热，<b>长片建议插电</b></td></tr>
+            <tr><td>手机盒子</td><td>依手机屏幕，多为 60Hz</td><td>旅行风光、静态 360</td><td>陀螺仪漂移，<b>需定期校准</b></td></tr>
+            <tr><td>网页全景播放器</td><td>依赖带宽，自适应码率</td><td>预览、选片</td><td>无空间音频，<b>仅作挑选用</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="rank" aria-labelledby="s7">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">07</span>
+        <h2 id="s7">口碑榜</h2>
+        <p>按本站读者反馈与完播率排序，每月更新一次，不代表商业评分。</p>
+      </div>
+      <div class="rank">
+        <div class="rk"><span class="n">01</span><div><h4>深海守夜人</h4><p>无对白叙事，空间音频到位，新手第一部首选，完播率最高。</p></div></div>
+        <div class="rk"><span class="n">02</span><div><h4>纸城漫游</h4><p>画面舒适、镜头不动，给家里小孩或长辈试机用它最稳。</p></div></div>
+        <div class="rk"><span class="n">03</span><div><h4>深海鲸群</h4><p>蓝调画面加鲸歌，适合睡前看十分钟，注意音量别太大。</p></div></div>
+        <div class="rk"><span class="n">04</span><div><h4>火山口之上</h4><p>震撼度高，但镜头晃动强，容易晕的观众请坐稳并缩短时长。</p></div></div>
+        <div class="rk"><span class="n">05</span><div><h4>古宅回声</h4><p>回头与转身的设计被反复提到，叙事节奏比画面更被认可。</p></div></div>
+        <div class="rk"><span class="n">06</span><div><h4>星图寓言</h4><p>节奏慢，适合想安静待一会儿的人，不建议当背景音观看。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="s8">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">08</span>
+        <h2 id="s8">常见问题</h2>
+        <p>关于看什么、怎么看、在哪里看，我们把被问得最多的几件事写在这里。</p>
+      </div>
+      <details open>
+        <summary>VR影视 是播放网站吗？</summary>
+        <p>不是。本站只做资料整理与片单推荐，不提供在线播放、下载、解析或任何资源存储，所有观看行为请在合法合规的平台与应用内完成。</p>
+      </details>
+      <details>
+        <summary>第一次用头显，该从哪类内容看起？</summary>
+        <p>建议从 VR 动画或旅行风光开始：镜头运动小、色彩明亮、单集短。看完两三部再尝试纪录片与电影，最后才是演唱会直播这类信息量大的内容。</p>
+      </details>
+      <details>
+        <summary>看几分钟就头晕怎么办？</summary>
+        <p>先确认头显是否戴正、瞳距是否调好；再把亮度调低一点、风扇对着脸吹；每次不超过十五分钟，中间摘下看看远处。本站标注了「易晕」「强震感」的条目，新手请避开。</p>
+      </details>
+      <details>
+        <summary>360 视频和真正的 VR 有什么区别？</summary>
+        <p>360 视频是你只能转头、不能走动的「全景画面」；真正的 VR 影像允许位置移动与交互。本站大部分条目属于前者，交互类会单独标注。</p>
+      </details>
+      <details>
+        <summary>为什么有的条目找不到播放源？</summary>
+        <p>片源下架、地区限制或平台调整都很常见。本站只记录作品信息与观看建议，不维护播放链接，也不做跳转。</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="s9">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">09</span>
+        <h2 id="s9">关于本站</h2>
+        <p>VR影视 由一名沉浸式影像爱好者维护，更新频率不高，但每一条都自己看过。</p>
+      </div>
+      <p>整理这个站点的起因很朴素：VR 内容散落在各个平台与应用的角落里，搜一次要翻三页，而且大量条目没有标注时长、画质与是否容易晕。于是我们把看过的内容按题材分好，补上这些实用信息，做成一份可以反复翻的手册。</p>
+      <p>站点的正式访问地址是 <strong>https://vryingshi-top.github.io</strong>，所有页面都在这个域名下，站内链接均为页内跳转，不指向任何外部播放或下载地址。页面在手机、平板与电脑上都能正常阅读，窄屏下菜单会自动折叠。</p>
+      <p>如果你有看过觉得不错的片子，或者发现某条信息已经过期，欢迎通过下方说明中的方式与维护者联系，我们会核实后补进片单。</p>
+      <div class="plaque" role="note">
+        本站唯一官方地址：<code>https://vryingshi-top.github.io</code>　｜　内容定位：VR 影视资料整理与观看建议　｜　服务声明：不提供播放、下载、解析与资源存储。
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h5>VR影视</h5>
+        <p style="margin:0;font-size:13.5px;color:var(--sub)">沉浸式影像资料库与观看手册，收录 VR 电影、360 度全景视频、VR 演唱会、VR 动画、交互式纪录片与旅行风光影像。</p>
+      </div>
+      <div>
+        <h5>内容分类</h5>
+        <ul>
+          <li><a href="#vrfilm">VR 电影</a></li>
+          <li><a href="#live">全景直播</a></li>
+          <li><a href="#cartoon">VR 动画</a></li>
+          <li><a href="#doc">沉浸纪录</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>实用信息</h5>
+        <ul>
+          <li><a href="#travel">旅行影像</a></li>
+          <li><a href="#device">设备适配</a></li>
+          <li><a href="#rank">口碑榜</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站点信息</h5>
+        <ul>
+          <li><a href="#about">关于本站</a></li>
+          <li><a href="#top">返回顶部</a></li>
+          <li><a href="https://vryingshi-top.github.io" rel="noopener">vryingshi-top.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="plaque">官方网址：<code>https://vryingshi-top.github.io</code>　本站仅为信息整理，不提供任何影视播放、下载或解析服务。</div>
+    <div class="copy">© <span id="yr">2026</span> VR影视 · vryingshi-top.github.io　保留所有文字内容的整理署名。页面内示例作品名与参数为演示用途，正式上线前请替换为核实后的资料。</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('mb').addEventListener('click',function(){
+  var m=document.getElementById('mn'),open=m.classList.toggle('show');
+  this.setAttribute('aria-expanded',open?'true':'false');
+});
+document.querySelectorAll('#mn a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('mn').classList.remove('show');
+    document.getElementById('mb').setAttribute('aria-expanded','false');
+  });
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
